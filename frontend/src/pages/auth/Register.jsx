@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InputField from "../../components/InputField";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [role, setRole] = useState("student");
@@ -9,6 +9,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [dept, setDept] = useState("");
+  const navigate = useNavigate();
 
   // Check if department field should be shown
   const showDepartment = !["library", "hall-admin"].includes(role);
@@ -28,6 +29,24 @@ export default function Register() {
 
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
+      return;
+    }
+
+    // Store user info in localStorage
+    localStorage.setItem('userRole', role);
+    localStorage.setItem('userId', id);
+    if (role === 'student') {
+      localStorage.setItem('student_id', id);
+      if (dept) localStorage.setItem('student_dept', dept);
+      alert("Registration Successful!");
+      navigate('/student/dashboard');
+      return;
+    }
+
+    if (role === 'employee' && dept) {
+      localStorage.setItem('employee_dept', dept);
+      alert("Registration Successful!");
+      navigate(`/office/${dept}/staffs`);
       return;
     }
 

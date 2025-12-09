@@ -13,6 +13,7 @@ import {
   FaHome,
   FaSignOutAlt
 } from 'react-icons/fa';
+import Chatbot from '../../components/Chatbot';
 
 const AdminLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -95,6 +96,7 @@ const AdminLayout = () => {
           <Outlet />
         </main>
       </div>
+      <Chatbot />
     </div>
   );
 };

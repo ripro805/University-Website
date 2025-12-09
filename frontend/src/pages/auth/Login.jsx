@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Login() {
   const [role, setRole] = useState("student");
   const [userId, setUserId] = useState("");
+  const [dept, setDept] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -15,13 +16,29 @@ export default function Login() {
     // Store user info in localStorage
     localStorage.setItem('userRole', role);
     localStorage.setItem('userId', userId);
+    // also set role-specific id keys as requested
+    if (role === 'student') {
+      localStorage.setItem('student_id', userId);
+      // store department if provided
+      if (dept) localStorage.setItem('student_dept', dept);
+    } else if (role === 'teacher') {
+      localStorage.setItem('teacher_id', userId);
+    }
 
     // Redirect based on role
-    if (role === "student") navigate("/dashboard/student");
-    if (role === "teacher") navigate("/dashboard/teacher");
-    if (role === "library") navigate("/dashboard/library");
-    if (role === "employee") navigate("/dashboard/employee");
-    if (role === "hall-admin") navigate("/admin/halls");
+    if (role === "student") return navigate("/student/dashboard");
+    if (role === "teacher") return navigate("/dashboard/teacher");
+    if (role === "library") return navigate("/dashboard/library");
+    if (role === "hall-admin") return navigate("/admin/halls");
+
+    // Employee: determine department (prefer explicit input, else stored value)
+    if (role === "employee") {
+      const stored = localStorage.getItem('employee_dept');
+      const deptToUse = dept || stored;
+      if (!deptToUse) return alert('Department is required for employee login!');
+      localStorage.setItem('employee_dept', deptToUse);
+      return navigate(`/office/${deptToUse}/staffs`);
+    }
   };
 
   return (
@@ -56,6 +73,14 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        {role === 'employee' && (
+          <InputField
+            label="Department"
+            value={dept}
+            onChange={(e) => setDept(e.target.value)}
+          />
+        )}
 
         <button
           className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800"
