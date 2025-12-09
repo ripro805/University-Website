@@ -16,12 +16,9 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="relative group">
-                        <Link
-                            to="/about"
-                            className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200 "
-                        >
+                        <span className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200 cursor-pointer">
                             About Us
-                        </Link>
+                        </span>
 
                         {/* Mega Menu */}
                         <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-xl border-t-1  p-6 w-[400px] z-50 gap-12">
@@ -38,12 +35,9 @@ export default function Navbar() {
                         </div>
                     </li>
                     <li className="relative group">
-                        <Link
-                            to="/about"
-                            className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200"
-                        >
+                        <span className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200">
                             Academics
-                        </Link>
+                        </span>
 
                         {/* Mega Menu */}
                         <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-xl border-t-1  p-6 w-[400px] z-50 gap-12">
@@ -59,39 +53,36 @@ export default function Navbar() {
                         </div>
                     </li>
                     <li className="relative group">
-                        <Link
+                        {/* <Link
                             to="/about"
                             className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200"
-                        >
+                        > */}
+                        <span className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200">
                             Offices
-                        </Link>
+                        </span>
+                        {/* </Link> */}
 
                         {/* Mega Menu */}
                         <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-xl border-t-1  p-6 w-[400px] z-50 gap-12">
 
                             {/* Column 1 */}
                             <div className="flex flex-col space-y-3 min-w-[200px]">
-                                <Link to="/academics/departments" className="hover:text-red-600 text-gray-700">Office of the Vice Chencelor</Link>
-                                <Link to="/vision" className="hover:text-red-600 text-gray-700">Office of the Pro Vice Chencelor</Link>
-                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Office of the Register</Link>
-                                <Link to="/academics/departments" className="hover:text-red-600 text-gray-700">Office of the Treasurer</Link>
-                                <Link to="/vision" className="hover:text-red-600 text-gray-700">Office of the Dean Engineering Faculty</Link>
-                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Office of the Life Science Faculty</Link>
-                                <Link to="/academics/departments" className="hover:text-red-600 text-gray-700">Office of the BBA Faculty</Link>
-                                <Link to="/vision" className="hover:text-red-600 text-gray-700">Office of the Arts Faculty</Link>
-                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Others</Link>
-                               
+                                <Link to="/offices/all-other-offices" className="hover:text-red-600 text-gray-700">All Other Offices</Link>
+                                <Link to="/offices/registrar-office" className="hover:text-red-600 text-gray-700">Registrar Office</Link>
+                                <Link to="/offices/controller-of-examinations" className="hover:text-red-600 text-gray-700">Controller of Examinations</Link>
+                                <Link to="/offices/treasurer-office" className="hover:text-red-600 text-gray-700">Treasurer Office</Link>
+                                <Link to="/offices/proctor-office" className="hover:text-red-600 text-gray-700">Proctor Office</Link>
+                                <Link to="/offices/public-relations-office" className="hover:text-red-600 text-gray-700">Public Relations Office</Link>
+                                <Link to="/offices/estate-office" className="hover:text-red-600 text-gray-700">Estate Office</Link>
+                                <Link to="/offices/planning-and-development-office" className="hover:text-red-600 text-gray-700">Planning & Development Office</Link>
                             </div>
 
                         </div>
                     </li>
                     <li className="relative group">
-                        <Link
-                            to="/about"
-                            className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200"
-                        >
+                        <span className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200">
                             Campus
-                        </Link>
+                        </span>
 
                         {/* Mega Menu */}
                         <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-xl border-t-1  p-6 w-[400px] z-50 gap-12">
@@ -99,7 +90,7 @@ export default function Navbar() {
                             {/* Column 1 */}
                             <div className="flex flex-col space-y-3 min-w-[200px]">
                                 <Link to="/overview" className="hover:text-red-600 text-gray-700">Campus Life</Link>
-                                <Link to="/vision" className="hover:text-red-600 text-gray-700">Residansial Halls</Link>
+                                <Link to="/hall" className="hover:text-red-600 text-gray-700">Residential Halls</Link>
                                 <Link to="/achievements" className="hover:text-red-600 text-gray-700">Gallery</Link>
                                 <Link to="/achievements" className="hover:text-red-600 text-gray-700">Sports</Link>
                                

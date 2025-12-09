@@ -5,11 +5,29 @@ import { Link } from "react-router-dom";
 export default function Register() {
   const [role, setRole] = useState("student");
   const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [dept, setDept] = useState("");
 
+  // Check if department field should be shown
+  const showDepartment = !["library", "hall-admin"].includes(role);
+
   const handleRegister = () => {
-    if (!id || !dept) {
+    // Validate required fields
+    if (!id || !email || !password || !confirmPassword) {
       alert("All fields required!");
+      return;
+    }
+
+    // Validate department only for roles that need it
+    if (showDepartment && !dept) {
+      alert("Department is required!");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
       return;
     }
 
@@ -34,6 +52,7 @@ export default function Register() {
           <option value="teacher">Teacher</option>
           <option value="library">Library Manager</option>
           <option value="employee">Office Employee</option>
+          <option value="hall-admin">Hall Admin</option>
         </select>
 
         <InputField
@@ -43,10 +62,33 @@ export default function Register() {
         />
 
         <InputField
-          label="Department"
-          value={dept}
-          onChange={(e) => setDept(e.target.value)}
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
+
+        <InputField
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <InputField
+          label="Confirm Password"
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+
+        {showDepartment && (
+          <InputField
+            label="Department"
+            value={dept}
+            onChange={(e) => setDept(e.target.value)}
+          />
+        )}
 
         <button
           className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 mt-2"

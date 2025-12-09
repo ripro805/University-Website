@@ -26,26 +26,117 @@ export default function Departments() {
     const dummySchools = [
         {
             id: 1,
-            name: "Applied Sciences & Technology",
-            dean: "Dr. Alice Rahman",
+            name: "Engineering Faculty",
+            dean: "Dean, Engineering Faculty",
             dean_image: "https://via.placeholder.com/150",
-            dean_email: "alice@gstu.edu",
+            dean_email: "dean.engineering@gstu.edu",
             departments: [
-                "Computer Science & Engineering",
-                "Electrical & Electronic Engineering",
-                "Industrial & Production Engineering"
+                "Computer Science and Engineering",
+                "Electrical and Electronic Engineering",
+                "Electronics and Telecommunication Engineering",
+                "Applied Chemistry and Chemical Engineering",
+                "Civil Engineering",
+                "Food Engineering",
+                "Architecture"
             ]
         },
         {
             id: 2,
-            name: "Physical Sciences",
-            dean: "Dr. Kamal Hossain",
+            name: "Science Faculty",
+            dean: "Dean, Science Faculty",
             dean_image: "https://via.placeholder.com/150",
-            dean_email: "kamal@gstu.edu",
+            dean_email: "dean.science@gstu.edu",
             departments: [
-                "Physics",
+                "Mathematics",
+                "Statistics",
                 "Chemistry",
-                "Mathematics"
+                "Physics",
+                "Environmental Science & Disaster Management"
+            ]
+        },
+        {
+            id: 3,
+            name: "Life Science Faculty",
+            dean: "Dean, Life Science Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.lifescience@gstu.edu",
+            departments: [
+                "Pharmacy",
+                "Biotechnology and Genetic Engineering",
+                "Biochemistry and Molecular Biology",
+                "Psychology",
+                "Botany"
+            ]
+        },
+        {
+            id: 4,
+            name: "Humanities Faculty",
+            dean: "Dean, Humanities Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.humanities@gstu.edu",
+            departments: [
+                "English",
+                "Bangla",
+                "History"
+            ]
+        },
+        {
+            id: 5,
+            name: "Social Science Faculty",
+            dean: "Dean, Social Science Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.socialscience@gstu.edu",
+            departments: [
+                "Sociology",
+                "Public Administration",
+                "International Relations",
+                "Economics",
+                "Political Science"
+            ]
+        },
+        {
+            id: 6,
+            name: "Business Studies Faculty",
+            dean: "Dean, Business Studies Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.business@gstu.edu",
+            departments: [
+                "Management Studies",
+                "Accounting and Information Systems",
+                "Marketing",
+                "Finance and Banking",
+                "Tourism and Hospitality Management"
+            ]
+        },
+        {
+            id: 7,
+            name: "Law Faculty",
+            dean: "Dean, Law Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.law@gstu.edu",
+            departments: [
+                "Law"
+            ]
+        },
+        {
+            id: 8,
+            name: "Agriculture Faculty",
+            dean: "Dean, Agriculture Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.agriculture@gstu.edu",
+            departments: [
+                "Agriculture",
+                "Fisheries and Marine Bioscience"
+            ]
+        },
+        {
+            id: 9,
+            name: "ASVM Faculty",
+            dean: "Dean, ASVM Faculty",
+            dean_image: "https://via.placeholder.com/150",
+            dean_email: "dean.asvm@gstu.edu",
+            departments: [
+                "Animal Science and Veterinary Medicine"
             ]
         }
     ];
