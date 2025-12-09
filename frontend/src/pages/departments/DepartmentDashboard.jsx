@@ -1,13 +1,15 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { departmentsFullData, departmentMenuItems } from "./departmentsData";
 
 export default function DepartmentDashboard() {
   const { slug } = useParams();
   const [dept, setDept] = useState(null);
-  const [activeTab, setActiveTab] = useState("overview");
+  const [activeTab, setActiveTab] = useState("about");
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
 
-  // Department data
-  const dummyDepartments = {
+  // Department data from imported file
+  const dummyDepartments = departmentsFullData || {
     "computer-science-engineering": {
       name: "Computer Science & Engineering",
       shortName: "CSE",
