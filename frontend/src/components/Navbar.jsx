@@ -36,18 +36,17 @@ export default function Navbar() {
                         </div>
                     </li>
                     <li className="relative group">
-                        <span className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200">
+                        <span className="px-6 py-4 block text-gray-800 hover:text-red-600 border-l border-gray-200 cursor-pointer">
                             Academics
                         </span>
 
                         {/* Mega Menu */}
-                        <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-xl border-t-1  p-6 w-[400px] z-50 gap-12">
+                        <div className="absolute left-0 top-full hidden group-hover:flex bg-white shadow-xl border-t-1 p-6 w-[300px] z-50">
 
-                            {/* Column 1 */}
                             <div className="flex flex-col space-y-3 min-w-[200px]">
                                 <Link to="/academics/departments" className="hover:text-red-600 text-gray-700">Departments</Link>
                                 <Link to="/vision" className="hover:text-red-600 text-gray-700">Centers & Cells</Link>
-                                <Link to="/library" className="hover:text-red-600 text-gray-700">Central Lirary</Link>
+                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Central Lirary</Link>
                                
                             </div>
 
