@@ -35,7 +35,7 @@ const SeatAllocation = () => {
   };
 
   const getAvailableRooms = (hallId) => {
-    return rooms.filter(r => r.hallId === parseInt(hallId) && r.occupied < r.capacity);
+    return rooms.filter(r => r.hallId === parseInt(hallId) && r.occupiedSeats < r.totalSeats);
   };
 
   const handleAllocateSeat = () => {
@@ -54,7 +54,7 @@ const SeatAllocation = () => {
     // Update room occupancy
     setRooms(rooms.map(r => 
       r.id === parseInt(allocationData.roomId)
-        ? { ...r, occupied: r.occupied + 1, status: r.occupied + 1 >= r.capacity ? 'Occupied' : 'Partially Occupied' }
+        ? { ...r, occupiedSeats: r.occupiedSeats + 1, availableSeats: r.availableSeats - 1, roomStatus: r.occupiedSeats + 1 >= r.totalSeats ? 'Occupied' : 'Partially Occupied' }
         : r
     ));
 
@@ -69,11 +69,12 @@ const SeatAllocation = () => {
       // Update room occupancy
       setRooms(rooms.map(r => {
         if (r.id === student.roomId) {
-          const newOccupied = r.occupied - 1;
+          const newOccupied = r.occupiedSeats - 1;
           return {
             ...r,
-            occupied: newOccupied,
-            status: newOccupied === 0 ? 'Available' : 'Partially Occupied'
+            occupiedSeats: newOccupied,
+            availableSeats: r.availableSeats + 1,
+            roomStatus: newOccupied === 0 ? 'Available' : 'Partially Occupied'
           };
         }
         return r;
@@ -265,7 +266,7 @@ const SeatAllocation = () => {
                     <option value="">Choose a room</option>
                     {getAvailableRooms(allocationData.hallId).map(room => (
                       <option key={room.id} value={room.id}>
-                        Room {room.roomNumber} - {room.type} ({room.capacity - room.occupied} seats available)
+                        Room {room.roomNumber} - {room.roomType} ({room.availableSeats} seats available)
                       </option>
                     ))}
                   </select>

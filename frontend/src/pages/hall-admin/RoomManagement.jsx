@@ -21,7 +21,7 @@ const RoomManagement = () => {
   const filteredRooms = rooms.filter(room => {
     const matchesHall = selectedHall === 'all' || room.hallId === parseInt(selectedHall);
     const matchesSearch = room.roomNumber.includes(searchTerm) || 
-                          room.type.toLowerCase().includes(searchTerm.toLowerCase());
+                          room.roomType.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesHall && matchesSearch;
   });
 
@@ -69,10 +69,10 @@ const RoomManagement = () => {
     setFormData({
       hallId: room.hallId,
       roomNumber: room.roomNumber,
-      type: room.type,
-      capacity: room.capacity,
+      type: room.roomType,
+      capacity: room.totalSeats,
       floor: room.floor,
-      status: room.status
+      status: room.roomStatus
     });
     setShowEditModal(true);
   };
@@ -163,12 +163,12 @@ const RoomManagement = () => {
                   <td className="px-6 py-4 whitespace-nowrap font-semibold">{room.roomNumber}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{getHallName(room.hallId)}</td>
                   <td className="px-6 py-4 whitespace-nowrap">{room.floor}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{room.type}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{room.capacity}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{room.occupied}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{room.roomType}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{room.totalSeats}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">{room.occupiedSeats}</td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(room.status)}`}>
-                      {room.status}
+                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(room.roomStatus)}`}>
+                      {room.roomStatus}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

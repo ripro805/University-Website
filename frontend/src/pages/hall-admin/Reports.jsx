@@ -9,9 +9,9 @@ const Reports = () => {
   const occupancyRate = ((totalOccupied / totalCapacity) * 100).toFixed(1);
 
   const totalRooms = roomsData.length;
-  const availableRooms = roomsData.filter(r => r.status === 'Available').length;
-  const occupiedRooms = roomsData.filter(r => r.status === 'Occupied').length;
-  const partiallyOccupied = roomsData.filter(r => r.status === 'Partially Occupied').length;
+  const availableRooms = roomsData.filter(r => r.roomStatus === 'Available').length;
+  const occupiedRooms = roomsData.filter(r => r.roomStatus === 'Occupied').length;
+  const partiallyOccupied = roomsData.filter(r => r.roomStatus === 'Partially Occupied').length;
 
   const totalStudents = studentsData.length;
   const allocatedStudents = studentsData.filter(s => s.roomId).length;
@@ -34,9 +34,9 @@ const Reports = () => {
 
   // Room type breakdown
   const roomTypes = {
-    Single: roomsData.filter(r => r.type === 'Single').length,
-    Double: roomsData.filter(r => r.type === 'Double').length,
-    Triple: roomsData.filter(r => r.type === 'Triple').length
+    Single: roomsData.filter(r => r.roomType === 'Single').length,
+    'Five-Seat': roomsData.filter(r => r.roomType === 'Five-Seat').length,
+    General: roomsData.filter(r => r.roomType === 'General').length
   };
 
   const handleDownloadReport = () => {
@@ -149,12 +149,12 @@ const Reports = () => {
             <p className="text-3xl font-bold text-blue-600">{roomTypes.Single}</p>
           </div>
           <div className="border border-gray-200 rounded p-4 text-center">
-            <p className="text-gray-600 text-sm mb-1">Double Rooms</p>
-            <p className="text-3xl font-bold text-green-600">{roomTypes.Double}</p>
+            <p className="text-gray-600 text-sm mb-1">Five-Seat Rooms</p>
+            <p className="text-3xl font-bold text-green-600">{roomTypes['Five-Seat']}</p>
           </div>
           <div className="border border-gray-200 rounded p-4 text-center">
-            <p className="text-gray-600 text-sm mb-1">Triple Rooms</p>
-            <p className="text-3xl font-bold text-purple-600">{roomTypes.Triple}</p>
+            <p className="text-gray-600 text-sm mb-1">General Rooms (15 seats)</p>
+            <p className="text-3xl font-bold text-purple-600">{roomTypes.General}</p>
           </div>
         </div>
       </div>
