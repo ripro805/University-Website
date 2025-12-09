@@ -46,7 +46,7 @@ export default function Navbar() {
                             <div className="flex flex-col space-y-3 min-w-[200px]">
                                 <Link to="/academics/departments" className="hover:text-red-600 text-gray-700">Departments</Link>
                                 <Link to="/vision" className="hover:text-red-600 text-gray-700">Centers & Cells</Link>
-                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Central Lirary</Link>
+                                <Link to="/library" className="hover:text-red-600 text-gray-700">Central Lirary</Link>
                                
                             </div>
 
