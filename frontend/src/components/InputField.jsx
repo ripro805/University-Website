@@ -12,3 +12,8 @@ export default function InputField({ label, type="text", value, onChange }) {
     </div>
   );
 }
+
+
+
+
+

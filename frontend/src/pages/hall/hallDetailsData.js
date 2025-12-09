@@ -8,24 +8,32 @@ export const hallDetailsData = {
     name: "Bijoy Dibosh Hall",
     officers: [
       {
-        name: "Dr. Md Jamal Uddin",
+        name: "Dr. Mohammad Rabiul Islam",
         designation: "Provost",
-        image: "/images/halls/bijoy-dibosh/jamal-uddin.jpg"
+        phone: "01614-7069395",
+        email: "rabiul.du118@gmail.com",
+        image: "/images/halls/officers image/Rabiul - Rabiul Islam.jpg"
       },
       {
-        name: "Syed Misbah Uddin",
-        designation: "Asst Provost",
-        image: "/images/halls/bijoy-dibosh/misbah-uddin.jpg"
+        name: "Md. Zahid Hossain",
+        designation: "Assistant Provost",
+        phone: "01722-881680",
+        email: "zahid@bsmrstu.edu.bd",
+        image: "/images/halls/officers image/zahid.jpg"
       },
       {
-        name: "Md. Mehedi Hasan",
-        designation: "Asst Provost",
-        image: "/images/halls/bijoy-dibosh/mehedi-hasan.jpg"
+        name: "Asik-Uz-Zaman",
+        designation: "Assistant Provost",
+        phone: "01672-547700",
+        email: "asik18162@gmail.com",
+        image: "/images/halls/officers image/Ashik-Uz-Zaman.jpg"
       },
       {
-        name: "A.K.M. Fakhrul Hossain",
-        designation: "Asst Provost",
-        image: "/images/halls/bijoy-dibosh/fakhrul-hossain.jpg"
+        name: "Gobinda Bhakta",
+        designation: "Section Officer",
+        phone: "01725-593168",
+        email: "gobindabhakta26@gmail.com",
+        image: "/images/default-avatar.png"
       }
     ]
   },
@@ -110,3 +118,8 @@ export const hallDetailsData = {
     ]
   }
 };
+
+
+
+
+

@@ -77,7 +77,7 @@ const Notices = () => {
     switch(priority) {
       case 'High': return 'bg-red-100 text-red-800';
       case 'Medium': return 'bg-yellow-100 text-yellow-800';
-      case 'Low': return 'bg-green-100 text-green-800';
+      case 'Low': return 'bg-blue-100 text-blue-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -90,7 +90,7 @@ const Notices = () => {
           <h2 className="text-2xl font-bold text-gray-800">Hall Notices</h2>
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center space-x-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+            className="flex items-center space-x-2 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition"
           >
             <FaPlus />
             <span>Create Notice</span>
@@ -104,7 +104,7 @@ const Notices = () => {
           <div key={notice.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
             <div className="flex items-start justify-between mb-3">
               <div className="flex items-center space-x-3">
-                <FaBullhorn className="text-green-700 text-2xl" />
+                <FaBullhorn className="text-blue-700 text-2xl" />
                 <div>
                   <h3 className="text-xl font-bold text-gray-800">{notice.title}</h3>
                   <div className="flex items-center space-x-3 mt-1">
@@ -159,7 +159,7 @@ const Notices = () => {
                   onChange={(e) => setFormData({...formData, title: e.target.value})}
                   required
                   placeholder="Enter notice title"
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
@@ -173,7 +173,7 @@ const Notices = () => {
                   required
                   rows="5"
                   placeholder="Enter notice content"
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </div>
 
@@ -182,7 +182,7 @@ const Notices = () => {
                 <select
                   value={formData.hallId}
                   onChange={(e) => setFormData({...formData, hallId: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">All Halls</option>
                   {hallsData.map(hall => (
@@ -197,7 +197,7 @@ const Notices = () => {
                 <select
                   value={formData.priority}
                   onChange={(e) => setFormData({...formData, priority: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
@@ -208,7 +208,7 @@ const Notices = () => {
               <div className="flex space-x-2">
                 <button
                   type="submit"
-                  className="flex-1 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+                  className="flex-1 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800"
                 >
                   {isEditing ? 'Update Notice' : 'Create Notice'}
                 </button>
@@ -229,3 +229,9 @@ const Notices = () => {
 };
 
 export default Notices;
+
+
+
+
+
+

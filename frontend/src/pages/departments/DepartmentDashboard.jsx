@@ -158,7 +158,7 @@ export default function DepartmentDashboard() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-4 font-medium capitalize transition-colors ${
+                className={`px-6 py-4 font-medium capitalize ${
                   activeTab === tab
                     ? "border-b-4 border-blue-600 text-blue-600"
                     : "text-gray-600 hover:text-blue-600"
@@ -187,7 +187,7 @@ export default function DepartmentDashboard() {
                       <h3 className="text-xl font-bold text-gray-800 mb-3">Vision</h3>
                       <p className="text-gray-700">{dept.vision}</p>
                     </div>
-                    <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+                    <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
                       <h3 className="text-xl font-bold text-gray-800 mb-3">Mission</h3>
                       <p className="text-gray-700">{dept.mission}</p>
                     </div>
@@ -334,3 +334,8 @@ export default function DepartmentDashboard() {
     </div>
   );
 }
+
+
+
+
+

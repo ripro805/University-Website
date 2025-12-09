@@ -91,7 +91,7 @@ const RoomManagement = () => {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'Available': return 'bg-green-100 text-green-800';
+      case 'Available': return 'bg-blue-100 text-blue-800';
       case 'Occupied': return 'bg-red-100 text-red-800';
       case 'Partially Occupied': return 'bg-yellow-100 text-yellow-800';
       default: return 'bg-gray-100 text-gray-800';
@@ -106,7 +106,7 @@ const RoomManagement = () => {
           <h2 className="text-2xl font-bold text-gray-800">Room Management</h2>
           <button
             onClick={() => setShowAddModal(true)}
-            className="flex items-center space-x-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+            className="flex items-center space-x-2 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition"
           >
             <FaPlus />
             <span>Add New Room</span>
@@ -122,7 +122,7 @@ const RoomManagement = () => {
               placeholder="Search by room number or type..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div className="relative">
@@ -130,7 +130,7 @@ const RoomManagement = () => {
             <select
               value={selectedHall}
               onChange={(e) => setSelectedHall(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Halls</option>
               {hallsData.map(hall => (
@@ -206,7 +206,7 @@ const RoomManagement = () => {
                   value={formData.hallId}
                   onChange={(e) => setFormData({...formData, hallId: e.target.value})}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">Select Hall</option>
                   {hallsData.map(hall => (
@@ -221,7 +221,7 @@ const RoomManagement = () => {
                   value={formData.roomNumber}
                   onChange={(e) => setFormData({...formData, roomNumber: e.target.value})}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -229,7 +229,7 @@ const RoomManagement = () => {
                 <select
                   value={formData.type}
                   onChange={(e) => setFormData({...formData, type: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="Single">Single</option>
                   <option value="Double">Double</option>
@@ -244,7 +244,7 @@ const RoomManagement = () => {
                   onChange={(e) => setFormData({...formData, capacity: e.target.value})}
                   required
                   min="1"
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -255,11 +255,11 @@ const RoomManagement = () => {
                   onChange={(e) => setFormData({...formData, floor: e.target.value})}
                   required
                   min="1"
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <div className="flex space-x-2">
-                <button type="submit" className="flex-1 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+                <button type="submit" className="flex-1 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">
                   Add Room
                 </button>
                 <button
@@ -287,7 +287,7 @@ const RoomManagement = () => {
                   value={formData.hallId}
                   onChange={(e) => setFormData({...formData, hallId: e.target.value})}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   {hallsData.map(hall => (
                     <option key={hall.id} value={hall.id}>{hall.name}</option>
@@ -301,7 +301,7 @@ const RoomManagement = () => {
                   value={formData.roomNumber}
                   onChange={(e) => setFormData({...formData, roomNumber: e.target.value})}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -309,7 +309,7 @@ const RoomManagement = () => {
                 <select
                   value={formData.type}
                   onChange={(e) => setFormData({...formData, type: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="Single">Single</option>
                   <option value="Double">Double</option>
@@ -324,7 +324,7 @@ const RoomManagement = () => {
                   onChange={(e) => setFormData({...formData, capacity: e.target.value})}
                   required
                   min="1"
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -335,7 +335,7 @@ const RoomManagement = () => {
                   onChange={(e) => setFormData({...formData, floor: e.target.value})}
                   required
                   min="1"
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -343,7 +343,7 @@ const RoomManagement = () => {
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({...formData, status: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="Available">Available</option>
                   <option value="Occupied">Occupied</option>
@@ -351,7 +351,7 @@ const RoomManagement = () => {
                 </select>
               </div>
               <div className="flex space-x-2">
-                <button type="submit" className="flex-1 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+                <button type="submit" className="flex-1 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">
                   Update Room
                 </button>
                 <button
@@ -371,3 +371,9 @@ const RoomManagement = () => {
 };
 
 export default RoomManagement;
+
+
+
+
+
+

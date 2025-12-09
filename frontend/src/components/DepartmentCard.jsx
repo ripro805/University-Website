@@ -6,3 +6,8 @@ export default function DepartmentCard({ name, desc }) {
     </div>
   );
 }
+
+
+
+
+

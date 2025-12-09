@@ -51,7 +51,7 @@ const Reports = () => {
           <h2 className="text-2xl font-bold text-gray-800">Hall & Room Reports</h2>
           <button
             onClick={handleDownloadReport}
-            className="flex items-center space-x-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+            className="flex items-center space-x-2 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition"
           >
             <FaDownload />
             <span>Download Report</span>
@@ -65,9 +65,9 @@ const Reports = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-600 text-sm mb-1">Total Halls</p>
-              <p className="text-3xl font-bold text-green-700">{totalHalls}</p>
+              <p className="text-3xl font-bold text-blue-700">{totalHalls}</p>
             </div>
-            <FaBuilding className="text-4xl text-green-700 opacity-20" />
+            <FaBuilding className="text-4xl text-blue-700 opacity-20" />
           </div>
         </div>
 
@@ -112,7 +112,7 @@ const Reports = () => {
           </div>
           <div className="border border-gray-200 rounded p-4">
             <p className="text-gray-600 text-sm mb-1">Occupied Seats</p>
-            <p className="text-2xl font-bold text-green-600">{totalOccupied}</p>
+            <p className="text-2xl font-bold text-blue-600">{totalOccupied}</p>
           </div>
           <div className="border border-gray-200 rounded p-4">
             <p className="text-gray-600 text-sm mb-1">Available Seats</p>
@@ -127,7 +127,7 @@ const Reports = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="border border-gray-200 rounded p-4">
             <p className="text-gray-600 text-sm mb-1">Available Rooms</p>
-            <p className="text-2xl font-bold text-green-600">{availableRooms}</p>
+            <p className="text-2xl font-bold text-blue-600">{availableRooms}</p>
           </div>
           <div className="border border-gray-200 rounded p-4">
             <p className="text-gray-600 text-sm mb-1">Partially Occupied</p>
@@ -150,7 +150,7 @@ const Reports = () => {
           </div>
           <div className="border border-gray-200 rounded p-4 text-center">
             <p className="text-gray-600 text-sm mb-1">Five-Seat Rooms</p>
-            <p className="text-3xl font-bold text-green-600">{roomTypes['Five-Seat']}</p>
+            <p className="text-3xl font-bold text-blue-600">{roomTypes['Five-Seat']}</p>
           </div>
           <div className="border border-gray-200 rounded p-4 text-center">
             <p className="text-gray-600 text-sm mb-1">General Rooms (15 seats)</p>
@@ -165,10 +165,10 @@ const Reports = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border border-gray-200 rounded p-4">
             <p className="text-gray-600 text-sm mb-1">Allocated Students</p>
-            <p className="text-2xl font-bold text-green-600">{allocatedStudents}</p>
+            <p className="text-2xl font-bold text-blue-600">{allocatedStudents}</p>
             <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
               <div
-                className="bg-green-600 h-2 rounded-full"
+                className="bg-blue-600 h-2 rounded-full"
                 style={{ width: `${(allocatedStudents / totalStudents) * 100}%` }}
               ></div>
             </div>
@@ -207,7 +207,7 @@ const Reports = () => {
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="px-6 py-4 font-semibold">{hall.name}</td>
                   <td className="px-6 py-4">{hall.capacity}</td>
-                  <td className="px-6 py-4 text-green-600 font-semibold">{hall.occupied}</td>
+                  <td className="px-6 py-4 text-blue-600 font-semibold">{hall.occupied}</td>
                   <td className="px-6 py-4 text-blue-600 font-semibold">{hall.available}</td>
                   <td className="px-6 py-4">{hall.rooms}</td>
                   <td className="px-6 py-4">{hall.students}</td>
@@ -219,7 +219,7 @@ const Reports = () => {
                           className={`h-2 rounded-full ${
                             parseFloat(hall.occupancyRate) > 90 ? 'bg-red-600' :
                             parseFloat(hall.occupancyRate) > 70 ? 'bg-yellow-600' :
-                            'bg-green-600'
+                            'bg-blue-600'
                           }`}
                           style={{ width: `${hall.occupancyRate}%` }}
                         ></div>
@@ -237,3 +237,9 @@ const Reports = () => {
 };
 
 export default Reports;
+
+
+
+
+
+

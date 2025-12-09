@@ -76,7 +76,7 @@ const HallEdit = () => {
               onChange={handleChange}
               required
               placeholder="Enter hall name"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -90,7 +90,7 @@ const HallEdit = () => {
               value={formData.type}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -110,7 +110,7 @@ const HallEdit = () => {
               required
               min="1"
               placeholder="Enter total capacity"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -126,7 +126,7 @@ const HallEdit = () => {
               onChange={handleChange}
               required
               placeholder="e.g., 2020"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -141,7 +141,7 @@ const HallEdit = () => {
               value={formData.image}
               onChange={handleChange}
               placeholder="Enter image URL"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -157,7 +157,7 @@ const HallEdit = () => {
               required
               rows="4"
               placeholder="Enter hall description"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
 
@@ -165,7 +165,7 @@ const HallEdit = () => {
           <div className="flex space-x-4">
             <button
               type="submit"
-              className="flex items-center space-x-2 bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition"
+              className="flex items-center space-x-2 bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-800 transition"
             >
               <FaSave />
               <span>Update Hall</span>
@@ -185,3 +185,9 @@ const HallEdit = () => {
 };
 
 export default HallEdit;
+
+
+
+
+
+

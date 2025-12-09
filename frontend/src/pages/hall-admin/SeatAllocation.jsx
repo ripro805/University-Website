@@ -131,7 +131,7 @@ const SeatAllocation = () => {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button
                       onClick={() => openAllocateModal(student)}
-                      className="flex items-center space-x-1 bg-green-700 text-white px-3 py-1 rounded hover:bg-green-800 transition text-sm"
+                      className="flex items-center space-x-1 bg-blue-700 text-white px-3 py-1 rounded hover:bg-blue-800 transition text-sm"
                     >
                       <FaUserPlus />
                       <span>Allocate</span>
@@ -168,7 +168,7 @@ const SeatAllocation = () => {
               placeholder="Search by name or student ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div className="relative">
@@ -176,7 +176,7 @@ const SeatAllocation = () => {
             <select
               value={selectedHall}
               onChange={(e) => setSelectedHall(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Halls</option>
               {hallsData.map(hall => (
@@ -246,7 +246,7 @@ const SeatAllocation = () => {
                 <select
                   value={allocationData.hallId}
                   onChange={(e) => setAllocationData({...allocationData, hallId: e.target.value, roomId: ''})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">Choose a hall</option>
                   {hallsData.map(hall => (
@@ -261,7 +261,7 @@ const SeatAllocation = () => {
                   <select
                     value={allocationData.roomId}
                     onChange={(e) => setAllocationData({...allocationData, roomId: e.target.value})}
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">Choose a room</option>
                     {getAvailableRooms(allocationData.hallId).map(room => (
@@ -276,7 +276,7 @@ const SeatAllocation = () => {
               <div className="flex space-x-2">
                 <button
                   onClick={handleAllocateSeat}
-                  className="flex-1 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+                  className="flex-1 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800"
                 >
                   Allocate
                 </button>
@@ -300,3 +300,9 @@ const SeatAllocation = () => {
 };
 
 export default SeatAllocation;
+
+
+
+
+
+

@@ -4,8 +4,9 @@ export default function Navbar() {
     return (
         <nav className="bg-white shadow-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                <Link to="/" className="text-2xl font-bold text-blue-700">
-                    GSTU
+                <Link to="/" className="flex items-center gap-3">
+                    <img src="/images/GSTU_Logo.png" alt="GSTU Logo" className="h-12 w-12 object-contain" />
+                    <span className="text-2xl font-bold text-blue-700">GSTU</span>
                 </Link>
 
                 <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
@@ -150,3 +151,7 @@ export default function Navbar() {
         </nav>
     );
 }
+
+
+
+

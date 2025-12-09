@@ -72,14 +72,14 @@ export default function HallList() {
 
                   {/* Hall Name */}
                   <div className="flex-grow">
-                    <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600">
                       {hall}
                     </h3>
                   </div>
 
                   {/* Right Arrow Icon */}
                   <div className="flex-shrink-0">
-                    <ChevronRightIcon className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                    <ChevronRightIcon className="w-5 h-5 text-gray-400 group-hover:text-blue-600" />
                   </div>
                 </div>
               </Link>
@@ -104,3 +104,8 @@ export default function HallList() {
     </div>
   );
 }
+
+
+
+
+

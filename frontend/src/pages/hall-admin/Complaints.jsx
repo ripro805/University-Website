@@ -35,7 +35,7 @@ const Complaints = () => {
     switch(status) {
       case 'Pending': return 'bg-yellow-100 text-yellow-800';
       case 'In Progress': return 'bg-blue-100 text-blue-800';
-      case 'Resolved': return 'bg-green-100 text-green-800';
+      case 'Resolved': return 'bg-blue-100 text-blue-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -44,7 +44,7 @@ const Complaints = () => {
     switch(priority) {
       case 'High': return 'bg-red-100 text-red-800';
       case 'Medium': return 'bg-yellow-100 text-yellow-800';
-      case 'Low': return 'bg-green-100 text-green-800';
+      case 'Low': return 'bg-blue-100 text-blue-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -76,9 +76,9 @@ const Complaints = () => {
             <p className="text-sm text-gray-600">In Progress</p>
             <p className="text-2xl font-bold text-indigo-600">{statusCounts.inProgress}</p>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg">
+          <div className="bg-blue-50 p-4 rounded-lg">
             <p className="text-sm text-gray-600">Resolved</p>
-            <p className="text-2xl font-bold text-green-600">{statusCounts.resolved}</p>
+            <p className="text-2xl font-bold text-blue-600">{statusCounts.resolved}</p>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ const Complaints = () => {
               placeholder="Search complaints..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div className="relative">
@@ -99,7 +99,7 @@ const Complaints = () => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Status</option>
               <option value="Pending">Pending</option>
@@ -112,7 +112,7 @@ const Complaints = () => {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Priority</option>
               <option value="High">High</option>
@@ -126,49 +126,51 @@ const Complaints = () => {
       {/* Complaints Table */}
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="min-w-full w-full">
             <thead className="bg-gray-50 border-b">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Student</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hall</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Room</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Complaint</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[100px]">Date</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[150px]">Student</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[200px]">Hall</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[80px]">Room</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[250px]">Complaint</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[100px]">Priority</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[100px]">Status</th>
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap min-w-[120px]">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               {filteredComplaints.map((complaint) => (
                 <tr key={complaint.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">{complaint.date}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm min-w-[100px]">{complaint.date}</td>
+                  <td className="px-4 py-4 whitespace-nowrap min-w-[150px]">
                     <div>
-                      <p className="font-semibold">{complaint.studentName}</p>
-                      <p className="text-sm text-gray-600">{complaint.studentId}</p>
+                      <p className="font-semibold text-sm">{complaint.studentName}</p>
+                      <p className="text-xs text-gray-600">{complaint.studentId}</p>
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">{getHallName(complaint.hallId)}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{complaint.roomNumber}</td>
-                  <td className="px-6 py-4 max-w-xs">
-                    <p className="truncate">{complaint.complaint}</p>
+                  <td className="px-4 py-4 min-w-[200px]">
+                    <p className="text-sm">{getHallName(complaint.hallId)}</p>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-4 py-4 whitespace-nowrap text-sm min-w-[80px]">{complaint.roomNumber}</td>
+                  <td className="px-4 py-4 min-w-[250px] max-w-[300px]">
+                    <p className="text-sm line-clamp-2">{complaint.complaint}</p>
+                  </td>
+                  <td className="px-4 py-4 whitespace-nowrap min-w-[100px]">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getPriorityColor(complaint.priority)}`}>
                       {complaint.priority}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-4 py-4 whitespace-nowrap min-w-[100px]">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(complaint.status)}`}>
                       {complaint.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-4 py-4 whitespace-nowrap min-w-[120px]">
                     <select
                       value={complaint.status}
                       onChange={(e) => handleStatusChange(complaint.id, e.target.value)}
-                      className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-500"
+                      className="text-sm border border-gray-300 rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="Pending">Pending</option>
                       <option value="In Progress">In Progress</option>
@@ -192,3 +194,9 @@ const Complaints = () => {
 };
 
 export default Complaints;
+
+
+
+
+
+

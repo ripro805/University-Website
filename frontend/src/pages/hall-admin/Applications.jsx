@@ -36,7 +36,7 @@ const Applications = () => {
 
   const getStatusColor = (status) => {
     switch(status) {
-      case 'Approved': return 'bg-green-100 text-green-800';
+      case 'Approved': return 'bg-blue-100 text-blue-800';
       case 'Rejected': return 'bg-red-100 text-red-800';
       case 'Pending': return 'bg-yellow-100 text-yellow-800';
       default: return 'bg-gray-100 text-gray-800';
@@ -66,9 +66,9 @@ const Applications = () => {
             <p className="text-sm text-gray-600">Pending</p>
             <p className="text-2xl font-bold text-yellow-600">{statusCounts.pending}</p>
           </div>
-          <div className="bg-green-50 p-4 rounded-lg">
+          <div className="bg-blue-50 p-4 rounded-lg">
             <p className="text-sm text-gray-600">Approved</p>
-            <p className="text-2xl font-bold text-green-600">{statusCounts.approved}</p>
+            <p className="text-2xl font-bold text-blue-600">{statusCounts.approved}</p>
           </div>
           <div className="bg-red-50 p-4 rounded-lg">
             <p className="text-sm text-gray-600">Rejected</p>
@@ -85,7 +85,7 @@ const Applications = () => {
               placeholder="Search by name or student ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div className="relative">
@@ -93,7 +93,7 @@ const Applications = () => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Status</option>
               <option value="Pending">Pending</option>
@@ -145,7 +145,7 @@ const Applications = () => {
                         <>
                           <button
                             onClick={() => handleApprove(app.id)}
-                            className="text-green-600 hover:text-green-800"
+                            className="text-blue-600 hover:text-blue-800"
                             title="Approve"
                           >
                             <FaCheck />
@@ -224,7 +224,7 @@ const Applications = () => {
                       handleApprove(selectedApplication.id);
                       setShowDetailModal(false);
                     }}
-                    className="flex-1 flex items-center justify-center space-x-2 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+                    className="flex-1 flex items-center justify-center space-x-2 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800"
                   >
                     <FaCheck />
                     <span>Approve</span>
@@ -256,3 +256,9 @@ const Applications = () => {
 };
 
 export default Applications;
+
+
+
+
+
+
