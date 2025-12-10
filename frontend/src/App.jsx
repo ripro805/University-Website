@@ -35,24 +35,6 @@ import Notices from "./pages/hall-admin/Notices.jsx";
 import Complaints from "./pages/hall-admin/Complaints.jsx";
 import Reports from "./pages/hall-admin/Reports.jsx";
 
-import LibraryLayout from "./pages/library/LibraryLayout.jsx";
-import LibraryHome from "./pages/library/LibraryHome.jsx";
-import LibraryLogin from "./pages/library/auth/login.jsx";
-import LibraryUserDashboard from "./pages/library/users/UserDashboard.jsx";
-import BooksList from "./pages/library/books/bookslist.jsx";
-import AddBook from "./pages/library/books/addbook.jsx";
-import EditBook from "./pages/library/books/editBook.jsx";
-import IssueBook from "./pages/library/transactions/issueBook.jsx";
-import ReturnBook from "./pages/library/transactions/returnBook.jsx";
-import IssuedBooksList from "./pages/library/transactions/issuedBooksList.jsx";
-import ReservationList from "./pages/library/reservations/reservationList.jsx";
-import AddFine from "./pages/library/fines/AddFine.jsx";
-import FinesList from "./pages/library/fines/FinesList.jsx";
-import PaymentHistory from "./pages/library/fines/PaymentHistory.jsx";
-import UsersList from "./pages/library/users/usersList.jsx";
-import AdminDashboard from "./pages/library/admin/adminDashboard.jsx";
-import Roles from "./pages/library/admin/Roles.jsx";
-import StaffManagement from "./pages/library/admin/StaffManagement.jsx";
 
 // Office Admin Imports (department-scoped)
 import OfficeAdminLayout from "./pages/offices/OfficeAdminLayout.jsx";
@@ -71,10 +53,18 @@ import StudentCourses from "./pages/students/StudentCourses.jsx";
 import StudentRoutine from "./pages/students/StudentRoutine.jsx";
 import StudentCGPA from "./pages/students/StudentCGPA.jsx";
 import StudentPayments from "./pages/students/StudentPayments.jsx";
-// import About from "./pages/About";
-// import Departments from "./pages/Departments";
-// import Admission from "./pages/Admission";
-// import Contact from "./pages/Contact";
+
+// Transport Imports
+import TransportLayout from "./pages/transport/TransportLayout.jsx";
+import BusRoutes from "./pages/transport/BusRoutes.jsx";
+import BusSchedule from "./pages/transport/BusSchedule.jsx";
+import TransportNotices from "./pages/transport/TransportNotices.jsx";
+import TransportLogin from "./pages/transport/TransportLogin.jsx";
+// Sports Imports
+import SportsLayout from "./pages/sports/SportsLayout.jsx";
+import SportsSchedule from "./pages/sports/SportsSchedule.jsx";
+import SportsNotices from "./pages/sports/SportsNotices.jsx";
+import SportsLogin from "./pages/sports/SportsLogin.jsx";
 
 export default function App() {
   return (
@@ -109,26 +99,7 @@ export default function App() {
         <Route path="/offices/office-of-the-pro-vice-chancellor" element={<ProViceChancellorOffice />} />
         <Route path="/offices/admission-office" element={<AdmissionOffice />} />
         
-        <Route path="/library" element={<LibraryLayout />}>
-          <Route index element={<LibraryHome />} />
-          <Route path="login" element={<LibraryLogin />} />
-          <Route path="user/dashboard" element={<LibraryUserDashboard />} />
-          <Route path="books" element={<BooksList />} />
-          <Route path="books/add" element={<AddBook />} />
-          <Route path="books/edit/:id" element={<EditBook />} />
-          <Route path="books/manage" element={<BooksList />} />
-          <Route path="transactions/issue" element={<IssueBook />} />
-          <Route path="transactions/return" element={<ReturnBook />} />
-          <Route path="transactions/issued-list" element={<IssuedBooksList />} />
-          <Route path="reservations" element={<ReservationList />} />
-          <Route path="fines" element={<FinesList />} />
-          <Route path="fines/add" element={<AddFine />} />
-          <Route path="fines/payment-history" element={<PaymentHistory />} />
-          <Route path="users" element={<UsersList />} />
-          <Route path="admin/dashboard" element={<AdminDashboard />} />
-          <Route path="admin/roles" element={<Roles />} />
-          <Route path="admin/staff" element={<StaffManagement />} />
-        </Route>
+  
 
         {/* Hall Route */}
         <Route path="/hall" element={<HallList />} />
@@ -190,6 +161,22 @@ export default function App() {
           <Route path="cgpa" element={<StudentCGPA />} />
           <Route path="payments" element={<StudentPayments />} />
           <Route index element={<StudentDashboard />} />
+        </Route>
+
+        {/* Transport Routes */}
+        <Route path="/transport" element={<TransportLayout />}>
+          <Route index element={<BusRoutes />} />
+          <Route path="schedule" element={<BusSchedule />} />
+          <Route path="notices" element={<TransportNotices />} />
+          <Route path="login" element={<TransportLogin />} />
+        </Route>
+
+        {/* Sports Routes */}
+        <Route path="/sports" element={<SportsLayout />}>
+          <Route index element={<SportsSchedule />} />
+          <Route path="schedule" element={<SportsSchedule />} />
+          <Route path="notices" element={<SportsNotices />} />
+          <Route path="login" element={<SportsLogin />} />
         </Route>
       </Routes>
 
