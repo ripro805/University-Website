@@ -1,4 +1,5 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import { FaUser, FaFileAlt, FaBook, FaCalendarAlt, FaTable, FaChartBar, FaMoneyBillWave } from 'react-icons/fa';
 import seedStudentData from './seedStudentData';
 import Chatbot from '../../components/Chatbot';
 
@@ -21,20 +22,36 @@ export default function StudentLayout(){
       </div>
 
       <div className="flex">
-        <aside className="w-64 bg-white p-4">
+        <aside className="w-64 bg-white p-4 border-r">
           <nav className="flex flex-col gap-2 text-sm">
-            <Link to="/student/dashboard" className="hover:text-blue-700">Overview</Link>
-            <Link to="/student/profile" className="hover:text-blue-700">Profile</Link>
-            <Link to="/student/documents" className="hover:text-blue-700">Documents</Link>
-            <Link to="/student/courses" className="hover:text-blue-700">Courses</Link>
-            <Link to="/student/routine" className="hover:text-blue-700">Class Routine</Link>
-            <Link to="/student/cgpa" className="hover:text-blue-700">CGPA</Link>
-            <Link to="/student/payments" className="hover:text-blue-700">Payments</Link>
+            <NavLink to="/student/dashboard" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaUser /> <span>Overview</span>
+            </NavLink>
+            <NavLink to="/student/profile" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaUser /> <span>Profile</span>
+            </NavLink>
+            <NavLink to="/student/documents" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaFileAlt /> <span>Documents</span>
+            </NavLink>
+            <NavLink to="/student/courses" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaBook /> <span>Courses</span>
+            </NavLink>
+            <NavLink to="/student/routine" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaCalendarAlt /> <span>Class Routine</span>
+            </NavLink>
+            <NavLink to="/student/cgpa" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaChartBar /> <span>CGPA</span>
+            </NavLink>
+            <NavLink to="/student/payments" className={({isActive}) => `flex items-center gap-3 p-3 rounded ${isActive? 'bg-blue-50 text-blue-700 font-semibold':'text-gray-700 hover:bg-gray-100'}`}>
+              <FaMoneyBillWave /> <span>Payments</span>
+            </NavLink>
           </nav>
         </aside>
 
-        <main className="flex-1 p-6">
-          <Outlet />
+        <main className="flex-1 p-6 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <Outlet />
+          </div>
         </main>
       </div>
       <Chatbot />

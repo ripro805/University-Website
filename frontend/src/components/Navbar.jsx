@@ -92,7 +92,7 @@ export default function Navbar() {
                                 <Link to="/overview" className="hover:text-red-600 text-gray-700">Campus Life</Link>
                                 <Link to="/hall" className="hover:text-red-600 text-gray-700">Residential Halls</Link>
                                 <Link to="/achievements" className="hover:text-red-600 text-gray-700">Gallery</Link>
-                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Sports</Link>
+                                <Link to="/sports" className="hover:text-red-600 text-gray-700">Sports</Link>
                                
                             </div>
 
@@ -111,7 +111,7 @@ export default function Navbar() {
 
                             {/* Column 1 */}
                             <div className="flex flex-col space-y-3 min-w-[200px]">
-                                <Link to="/overview" className="hover:text-red-600 text-gray-700">Transport</Link>
+                                <Link to="/transport" className="hover:text-red-600 text-gray-700">Transport</Link>
                                 <Link to="/overview" className="hover:text-red-600 text-gray-700">ePayment</Link>
                                 <Link to="/vision" className="hover:text-red-600 text-gray-700">Downloadable Forms</Link>
                                 <Link to="/achievements" className="hover:text-red-600 text-gray-700">Application From</Link>

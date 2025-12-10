@@ -58,10 +58,19 @@ import StudentCourses from "./pages/students/StudentCourses.jsx";
 import StudentRoutine from "./pages/students/StudentRoutine.jsx";
 import StudentCGPA from "./pages/students/StudentCGPA.jsx";
 import StudentPayments from "./pages/students/StudentPayments.jsx";
-// import About from "./pages/About";
-// import Departments from "./pages/Departments";
-// import Admission from "./pages/Admission";
-// import Contact from "./pages/Contact";
+
+// Transport Imports
+import TransportLayout from "./pages/transport/TransportLayout.jsx";
+import BusRoutes from "./pages/transport/BusRoutes.jsx";
+import BusSchedule from "./pages/transport/BusSchedule.jsx";
+import TransportNotices from "./pages/transport/TransportNotices.jsx";
+import TransportLogin from "./pages/transport/TransportLogin.jsx";
+
+// Sports Imports
+import SportsLayout from "./pages/sports/SportsLayout.jsx";
+import SportsSchedule from "./pages/sports/SportsSchedule.jsx";
+import SportsNotices from "./pages/sports/SportsNotices.jsx";
+import SportsLogin from "./pages/sports/SportsLogin.jsx";
 
 export default function App() {
   return (
@@ -70,13 +79,12 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/departments" element={<Departments />} />
-        <Route path="/admission" element={<Admission />} />
-        <Route path="/contact" element={<Contact />} /> */}
-                {/* Auth Routes */}
+
+        {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        
+        {/* Academics */}
         <Route path="/academics/central-library" element={<CentralLibrary />} />
         <Route path="/about/overview" element={<Overview />} />
         <Route path="/about/vision-and-mission" element={<VisionMission/>}/>
@@ -119,12 +127,10 @@ export default function App() {
           <Route path="notices" element={<NoticeManagement />} />
         </Route>
 
-        {/* Hall Route */}
+        {/* Hall Routes */}
         <Route path="/hall" element={<HallList />} />
         <Route path="/hall/:slug" element={<HallDetails />} />
 
-       
-        
         {/* Hall Admin Routes - Protected */}
         <Route 
           path="/admin" 
@@ -145,7 +151,7 @@ export default function App() {
           <Route path="reports" element={<Reports />} />
         </Route>
 
-        {/* Office Admin Routes - Protected and department-scoped */}
+        {/* Office Admin Routes - Protected */}
         <Route
           path="/office/:dept"
           element={
@@ -157,11 +163,11 @@ export default function App() {
           <Route path="staffs" element={<OfficeStaffs />} />
           <Route path="events" element={<OfficeEvents />} />
           <Route path="class-schedule" element={<ClassSchedule />} />
-          {/* compatibility: old 'classes' path redirected to 'class-schedule' */}
           <Route path="classes" element={<Navigate to="class-schedule" replace />} />
           <Route path="exams" element={<Exams />} />
           <Route path="results" element={<Results />} />
         </Route>
+
         {/* Student Routes - Protected */}
         <Route
           path="/student"
@@ -180,14 +186,25 @@ export default function App() {
           <Route path="payments" element={<StudentPayments />} />
           <Route index element={<StudentDashboard />} />
         </Route>
+
+        {/* Transport Routes */}
+        <Route path="/transport" element={<TransportLayout />}>
+          <Route index element={<BusRoutes />} />
+          <Route path="schedule" element={<BusSchedule />} />
+          <Route path="notices" element={<TransportNotices />} />
+          <Route path="login" element={<TransportLogin />} />
+        </Route>
+
+        {/* Sports Routes */}
+        <Route path="/sports" element={<SportsLayout />}>
+          <Route index element={<SportsSchedule />} />
+          <Route path="schedule" element={<SportsSchedule />} />
+          <Route path="notices" element={<SportsNotices />} />
+          <Route path="login" element={<SportsLogin />} />
+        </Route>
       </Routes>
 
       <Footer />
     </BrowserRouter>
   );
 }
-
-
-
-
-
