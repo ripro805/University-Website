@@ -35,24 +35,11 @@ import Notices from "./pages/hall-admin/Notices.jsx";
 import Complaints from "./pages/hall-admin/Complaints.jsx";
 import Reports from "./pages/hall-admin/Reports.jsx";
 
-import LibraryLayout from "./pages/library/LibraryLayout.jsx";
-import LibraryHome from "./pages/library/LibraryHome.jsx";
-import LibraryLogin from "./pages/library/auth/login.jsx";
-import LibraryUserDashboard from "./pages/library/users/UserDashboard.jsx";
-import BooksList from "./pages/library/books/bookslist.jsx";
-import AddBook from "./pages/library/books/addbook.jsx";
-import EditBook from "./pages/library/books/editBook.jsx";
-import IssueBook from "./pages/library/transactions/issueBook.jsx";
-import ReturnBook from "./pages/library/transactions/returnBook.jsx";
-import IssuedBooksList from "./pages/library/transactions/issuedBooksList.jsx";
-import ReservationList from "./pages/library/reservations/reservationList.jsx";
-import AddFine from "./pages/library/fines/AddFine.jsx";
-import FinesList from "./pages/library/fines/FinesList.jsx";
-import PaymentHistory from "./pages/library/fines/PaymentHistory.jsx";
-import UsersList from "./pages/library/users/usersList.jsx";
-import AdminDashboard from "./pages/library/admin/adminDashboard.jsx";
-import Roles from "./pages/library/admin/Roles.jsx";
-import StaffManagement from "./pages/library/admin/StaffManagement.jsx";
+// Public Library Pages
+import { LibraryOverview, BookCatalog, DigitalResources, LibraryRules, LibraryNotices } from "./pages/library/index.js";
+
+// Library Admin Imports
+import { LibraryAdminLayout, AdminDashboard, ManageBooks, IssueReturnSystem, ManageUsers, NoticeManagement } from "./pages/library-admin/index.js";
 
 // Office Admin Imports (department-scoped)
 import OfficeAdminLayout from "./pages/offices/OfficeAdminLayout.jsx";
@@ -109,25 +96,27 @@ export default function App() {
         <Route path="/offices/office-of-the-pro-vice-chancellor" element={<ProViceChancellorOffice />} />
         <Route path="/offices/admission-office" element={<AdmissionOffice />} />
         
-        <Route path="/library" element={<LibraryLayout />}>
-          <Route index element={<LibraryHome />} />
-          <Route path="login" element={<LibraryLogin />} />
-          <Route path="user/dashboard" element={<LibraryUserDashboard />} />
-          <Route path="books" element={<BooksList />} />
-          <Route path="books/add" element={<AddBook />} />
-          <Route path="books/edit/:id" element={<EditBook />} />
-          <Route path="books/manage" element={<BooksList />} />
-          <Route path="transactions/issue" element={<IssueBook />} />
-          <Route path="transactions/return" element={<ReturnBook />} />
-          <Route path="transactions/issued-list" element={<IssuedBooksList />} />
-          <Route path="reservations" element={<ReservationList />} />
-          <Route path="fines" element={<FinesList />} />
-          <Route path="fines/add" element={<AddFine />} />
-          <Route path="fines/payment-history" element={<PaymentHistory />} />
-          <Route path="users" element={<UsersList />} />
-          <Route path="admin/dashboard" element={<AdminDashboard />} />
-          <Route path="admin/roles" element={<Roles />} />
-          <Route path="admin/staff" element={<StaffManagement />} />
+        {/* Public Library Routes */}
+        <Route path="/library" element={<LibraryOverview />} />
+        <Route path="/library/catalog" element={<BookCatalog />} />
+        <Route path="/library/digital-resources" element={<DigitalResources />} />
+        <Route path="/library/rules" element={<LibraryRules />} />
+        <Route path="/library/notices" element={<LibraryNotices />} />
+
+        {/* Library Admin Routes - Protected */}
+        <Route 
+          path="/library-admin" 
+          element={
+            <ProtectedRoute allowedRole="library">
+              <LibraryAdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<AdminDashboard />} />
+          <Route path="books" element={<ManageBooks />} />
+          <Route path="issue-return" element={<IssueReturnSystem />} />
+          <Route path="users" element={<ManageUsers />} />
+          <Route path="notices" element={<NoticeManagement />} />
         </Route>
 
         {/* Hall Route */}
