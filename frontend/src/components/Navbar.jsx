@@ -91,7 +91,7 @@ export default function Navbar() {
                             <div className="flex flex-col space-y-3 min-w-[200px]">
                                 <Link to="/overview" className="hover:text-red-600 text-gray-700">Campus Life</Link>
                                 <Link to="/hall" className="hover:text-red-600 text-gray-700">Residential Halls</Link>
-                                <Link to="/achievements" className="hover:text-red-600 text-gray-700">Gallery</Link>
+                                <Link to="/campus/gallery" className="hover:text-red-600 text-gray-700">Gallery</Link>
                                 <Link to="/sports" className="hover:text-red-600 text-gray-700">Sports</Link>
                                
                             </div>

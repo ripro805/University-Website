@@ -80,6 +80,9 @@ import SportsSchedule from "./pages/sports/SportsSchedule.jsx";
 import SportsNotices from "./pages/sports/SportsNotices.jsx";
 import SportsLogin from "./pages/sports/SportsLogin.jsx";
 
+// Campus Imports
+import Gallery from "./pages/campus/Gallery.jsx";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -138,6 +141,9 @@ export default function App() {
         {/* Hall Routes */}
         <Route path="/hall" element={<HallList />} />
         <Route path="/hall/:slug" element={<HallDetails />} />
+
+        {/* Campus Routes */}
+        <Route path="/campus/gallery" element={<Gallery />} />
 
         {/* Hall Admin Routes - Protected */}
         <Route 

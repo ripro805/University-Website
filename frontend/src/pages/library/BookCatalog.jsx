@@ -1,21 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { bookCatalog, categories } from "./libraryData";
+import { categories } from "./libraryData";
 import { Search, ArrowLeft } from "lucide-react";
+
+const API_URL = "http://localhost:5000/api";
 
 export default function BookCatalog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const filteredBooks = bookCatalog.filter((book) => {
-    const matchesSearch =
-      book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      book.author.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || book.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  useEffect(() => {
+    fetchBooks();
+  }, [selectedCategory, searchQuery]);
 
-  const availableCount = filteredBooks.filter(book => book.availability === "Available").length;
+  const fetchBooks = async () => {
+    try {
+      setLoading(true);
+      let url = `${API_URL}/library/books?limit=100`;
+      
+      if (searchQuery) {
+        url += `&search=${encodeURIComponent(searchQuery)}`;
+      }
+      
+      if (selectedCategory !== "All") {
+        url += `&category=${encodeURIComponent(selectedCategory)}`;
+      }
+
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.success) {
+        setBooks(data.data);
+      }
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const availableCount = books.filter(book => book.available > 0).length;
 
   return (
     <div className="min-h-screen bg-gray-100 p-8 font-sans">
@@ -63,7 +89,7 @@ export default function BookCatalog() {
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <p className="text-sm text-gray-600 mb-1">Total Books</p>
-              <p className="text-3xl font-bold text-blue-700">{filteredBooks.length}</p>
+              <p className="text-3xl font-bold text-blue-700">{books.length}</p>
             </div>
             <div className="bg-green-50 p-4 rounded-lg border border-green-200">
               <p className="text-sm text-gray-600 mb-1">Available</p>
@@ -71,62 +97,73 @@ export default function BookCatalog() {
             </div>
             <div className="bg-red-50 p-4 rounded-lg border border-red-200">
               <p className="text-sm text-gray-600 mb-1">Not Available</p>
-              <p className="text-3xl font-bold text-red-700">{filteredBooks.length - availableCount}</p>
+              <p className="text-3xl font-bold text-red-700">{books.length - availableCount}</p>
             </div>
           </div>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <div className="bg-white shadow-md rounded-2xl p-8 text-center">
+            <p className="text-gray-600">Loading books...</p>
+          </div>
+        )}
+
         {/* Books Table */}
-        <div className="bg-white shadow-md rounded-2xl overflow-hidden border border-gray-200">
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
-              <thead className="bg-blue-600 text-white">
-                <tr>
-                  <th className="px-6 py-3 text-left text-sm font-semibold">Title</th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold">Author</th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold">Category</th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold">Copies</th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200">
-                {filteredBooks.length > 0 ? (
-                  filteredBooks.map((book) => (
-                    <tr key={book.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4">
-                        <p className="font-semibold text-gray-800">{book.title}</p>
-                      </td>
-                      <td className="px-6 py-4 text-gray-700">{book.author}</td>
-                      <td className="px-6 py-4">
-                        <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-sm font-medium">
-                          {book.category}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className="font-semibold text-gray-700">{book.copies}</span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className={`px-3 py-1 rounded text-sm font-semibold ${
-                          book.availability === "Available"
-                            ? "bg-green-100 text-green-700"
-                            : "bg-red-100 text-red-700"
-                        }`}>
-                          {book.availability}
-                        </span>
+        {!loading && (
+          <div className="bg-white shadow-md rounded-2xl overflow-hidden border border-gray-200">
+            <div className="overflow-x-auto">
+              <table className="min-w-full">
+                <thead className="bg-blue-600 text-white">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-sm font-semibold">Title</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold">Author</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold">Category</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold">ISBN</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold">Available/Total</th>
+                    <th className="px-6 py-3 text-left text-sm font-semibold">Status</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {books.length > 0 ? (
+                    books.map((book) => (
+                      <tr key={book._id} className="hover:bg-gray-50">
+                        <td className="px-6 py-4">
+                          <p className="font-semibold text-gray-800">{book.name}</p>
+                        </td>
+                        <td className="px-6 py-4 text-gray-700">{book.author}</td>
+                        <td className="px-6 py-4">
+                          <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded text-sm font-medium">
+                            {book.category}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-gray-600 text-sm">{book.isbn}</td>
+                        <td className="px-6 py-4 text-center">
+                          <span className="font-semibold text-gray-700">{book.available} / {book.quantity}</span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className={`px-3 py-1 rounded text-sm font-semibold ${
+                            book.available > 0
+                              ? "bg-green-100 text-green-700"
+                              : "bg-red-100 text-red-700"
+                          }`}>
+                            {book.available > 0 ? "Available" : "Not Available"}
+                          </span>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="6" className="px-6 py-12 text-center text-gray-500">
+                        No books found matching your search criteria.
                       </td>
                     </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="5" className="px-6 py-12 text-center text-gray-500">
-                      No books found matching your search criteria.
-                    </td>
-                  </tr>
                 )}
               </tbody>
             </table>
           </div>
         </div>
+        )}
       </div>
     </div>
   );
