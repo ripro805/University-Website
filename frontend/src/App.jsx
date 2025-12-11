@@ -34,7 +34,15 @@ import Applications from "./pages/hall-admin/Applications.jsx";
 import Notices from "./pages/hall-admin/Notices.jsx";
 import Complaints from "./pages/hall-admin/Complaints.jsx";
 import Reports from "./pages/hall-admin/Reports.jsx";
-
+// Teacher Module Imports
+import TeacherDashboard from "./pages/teachers/TeacherDashboard.jsx";
+import Profile from "./pages/teachers/Profile.jsx";
+import Courses from "./pages/teachers/Courses.jsx";
+import Students from "./pages/teachers/Students.jsx";
+import Attendance from "./pages/teachers/Attendance.jsx";
+import Assignments from "./pages/teachers/Assignments.jsx";
+import TeacherNotices from "./pages/teachers/Notices.jsx";
+import TeacherReports from "./pages/teachers/Reports.jsx";
 // Public Library Pages
 import { LibraryOverview, BookCatalog, DigitalResources, LibraryRules, LibraryNotices } from "./pages/library/index.js";
 
@@ -151,6 +159,24 @@ export default function App() {
           <Route path="reports" element={<Reports />} />
         </Route>
 
+        {/* Teacher Routes - Protected */}
+        <Route 
+          path="/teacher" 
+          element={
+            <ProtectedRoute allowedRole="teacher">
+              <TeacherDashboard />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="profile" element={<Profile />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="students" element={<Students />} />
+          <Route path="attendance" element={<Attendance />} />
+          <Route path="assignments" element={<Assignments />} />
+          <Route path="notices" element={<TeacherNotices />} />
+          <Route path="reports" element={<TeacherReports />} />
+        </Route>
+
         {/* Office Admin Routes - Protected */}
         <Route
           path="/office/:dept"
@@ -203,6 +229,7 @@ export default function App() {
           <Route path="login" element={<SportsLogin />} />
         </Route>
       </Routes>
+      
 
       <Footer />
     </BrowserRouter>
