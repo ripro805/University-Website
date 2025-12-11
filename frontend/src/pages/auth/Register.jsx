@@ -74,9 +74,9 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white w-full max-w-md p-8 shadow-lg rounded">
-        <h2 className="text-2xl font-bold text-center mb-6 text-blue-700">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4 py-8">
+      <div className="bg-white w-full max-w-md p-6 sm:p-8 shadow-lg rounded">
+        <h2 className="text-xl sm:text-2xl font-bold text-center mb-4 sm:mb-6 text-blue-700">
           Register
         </h2>
 

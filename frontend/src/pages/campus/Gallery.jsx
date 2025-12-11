@@ -25,20 +25,20 @@ export default function Gallery() {
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
       {/* Header Section */}
-      <div style={{ background: 'linear-gradient(to right, #1e40af, #1e3a8a)', color: 'white', padding: '4rem 0' }}>
+      <div style={{ background: 'linear-gradient(to right, #1e40af, #1e3a8a)', color: 'white', padding: '3rem 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem' }}>
-          <h1 style={{ fontSize: '2.25rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '1rem' }}>
+          <h1 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.25rem)', fontWeight: 'bold', textAlign: 'center', marginBottom: '1rem' }}>
             Campus Gallery
           </h1>
-          <p style={{ textAlign: 'center', color: '#bfdbfe', fontSize: '1.125rem' }}>
+          <p style={{ textAlign: 'center', color: '#bfdbfe', fontSize: 'clamp(0.875rem, 3vw, 1.125rem)' }}>
             Glimpses of life at Gopalganj Science & Technology University
           </p>
         </div>
       </div>
 
       {/* Gallery Grid */}
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3rem 1rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '2rem 1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '1rem' }}>
           {galleryImages.map((image, index) => (
             <div
               key={index}

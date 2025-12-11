@@ -29,7 +29,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[70vh] overflow-hidden">
+    <section className="relative h-[50vh] sm:h-[60vh] lg:h-[70vh] overflow-hidden">
       {/* Carousel Images */}
       {slides.map((slide, index) => (
         <div
@@ -47,22 +47,22 @@ export default function Hero() {
       ))}
 
       {/* Overlay Text */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="bg-transparent p-10 rounded-xl text-white text-center">
-          <h1 className="text-4xl font-bold mb-4 drop-shadow-lg">
+      <div className="absolute inset-0 flex items-center justify-center px-4">
+        <div className="bg-transparent p-6 sm:p-10 rounded-xl text-white text-center max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-4 drop-shadow-lg">
             Gopalganj Science & Technology University
           </h1>
-          <p className="text-lg drop-shadow-lg">Committed to Quality Education & Research</p>
+          <p className="text-sm sm:text-base lg:text-lg drop-shadow-lg">Committed to Quality Education & Research</p>
         </div>
       </div>
 
       {/* Previous Button */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full transition"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 sm:p-3 rounded-full transition"
         aria-label="Previous slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -70,10 +70,10 @@ export default function Hero() {
       {/* Next Button */}
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-3 rounded-full transition"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white p-2 sm:p-3 rounded-full transition"
         aria-label="Next slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
