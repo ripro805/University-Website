@@ -42,12 +42,27 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 // MongoDB Connection
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/Gstu_web";
 
+console.log("🔍 Attempting to connect to MongoDB...");
+console.log("📍 Connection string starts with:", MONGODB_URI.substring(0, 20) + "...");
+
 mongoose
-  .connect(MONGODB_URI)
-  .then(() => console.log("✅ MongoDB Connected to Gstu_web database"))
+  .connect(MONGODB_URI, {
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+  })
+  .then(() => {
+    console.log("✅ MongoDB Connected successfully");
+    console.log("📊 Database:", mongoose.connection.db.databaseName);
+  })
   .catch((err) => {
     console.error("❌ MongoDB Connection Error:", err.message);
-    process.exit(1);
+    console.error("💡 Check if MONGODB_URI is set correctly in environment variables");
+    console.error("💡 Ensure MongoDB Atlas allows connections from 0.0.0.0/0");
+    console.error("💡 Verify database user credentials are correct");
+    // Don't exit in production, allow server to start for health checks
+    if (process.env.NODE_ENV !== 'production') {
+      process.exit(1);
+    }
   });
 
 // Root endpoint
