@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputField from "../../components/InputField";
 import { Link, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 export default function Login() {
   const [role, setRole] = useState("student");
